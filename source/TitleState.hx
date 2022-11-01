@@ -80,6 +80,10 @@ class TitleState extends MusicBeatState
 
 	override public function create():Void
 	{
+		#if android
+		FlxG.android.preventDefaultKeys = [BACK];
+		#end
+		
 		Paths.clearStoredMemory();
 		Paths.clearUnusedMemory();
 
@@ -386,7 +390,7 @@ class TitleState extends MusicBeatState
 		}*/
 		//curSoniFrame = soni.animation.curAnim.curFrame;
 
-		#if mobile
+		#if android
 		for (touch in FlxG.touches.list)
 		{
 			if (touch.justPressed)
